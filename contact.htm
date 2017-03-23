@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Contact</title>
+</head>
+<body>
+  <nav>
+    <a href="index.htm">Home</a>
+    <a href="price.htm">Price</a>
+    <a href="contact.htm">Contact</a>
+  </nav>
+	<h1>Contact page</h1>
+	<form id="contactForm" action="#">
+    <p>
+      <label>
+        Name:
+        <input name="name" value="test" />
+      </label>
+    </p>
+    <p>
+      <label>
+        Email:
+        <input name="email" type="email" id="contactEmail" required value="test@andretissot.com" />
+      </label>
+    </p>
+    <p>
+      <label>
+        Message:
+        <textarea name="message"></textarea>
+      </label>
+    </p>
+    <p>
+      <input type="submit" value="Send">
+    </p>
+	</form>
+  <script src="js/waitPromise.js"></script>
+  <script src="js/asyncPost.js"></script>
+  <script src="js/accessLogger.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
