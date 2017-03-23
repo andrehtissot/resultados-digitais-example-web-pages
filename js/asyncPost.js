@@ -5,9 +5,9 @@ var asyncPost = function(toUrl, params){
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send(params);
     xhr.onreadystatechange = function() {
-      if(xhr.readyState === 4 && xhr.status === 200) {
+      if(xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) {
         resolve(xhr.responseText);
-      } else if(xhr.status !== 200) {
+      } else if(xhr.status < 200 && xhr.status >= 300) {
         reject(xhr);
       }
     }

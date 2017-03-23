@@ -19,6 +19,9 @@
   <script src="js/waitPromise.js"></script>
   <script src="js/asyncPost.js"></script>
   <script src="js/accessLogger.js"></script>
-  <script>AccessLogger.setTargetAddress('http://andretissot.com/log').visit('Home');</script>
+  <script>
+    AccessLogger.setTargetAddress(
+      'https://resultados-digitais-log-server.herokuapp.com/create.json').visit('Home');
+  </script>
 </body>
 </html>
