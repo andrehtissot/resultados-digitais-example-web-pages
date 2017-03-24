@@ -13,6 +13,7 @@
       return asyncPost('https://resultados-digitais-log-server.herokuapp.com/contacts.json', params);
     }, 3, 400).then(function(response){
       accessLogger.setSessionId('messageId='+encodeURI(JSON.parse(response).messageId));
+      alert('Message sent!');
     }).catch(function(){
       //Nothing yet
     });
