@@ -1,14 +1,13 @@
 'use strict';
 var AccessLogger = (function(){
-  var _namespace = 'AccessLogger::', _targetAddress = '',
-    _messageId = null,
+  var _namespace = 'AccessLogger::', _targetAddress = '', _sessionId = null,
     sendLog = function() {
     let log = localStorage.getItem(_namespace+'log');
     if(!log) { return; }
     localStorage.removeItem(_namespace+'log');
-    if(!_messageId){
-      _messageId = localStorage.getItem(_namespace+'messageId');
-      if(!_messageId){
+    if(!_sessionId){
+      _sessionId = localStorage.getItem(_namespace+'sessionId');
+      if(!_sessionId){
         let currentLog = localStorage.getItem(_namespace+'log');
         if(currentLog)
           localStorage.setItem(_namespace+'log', currentLog+';'+log);
@@ -16,7 +15,7 @@ var AccessLogger = (function(){
         return;
       }
     }
-    let params = 'log='+encodeURI(log)+'&messageId='+encodeURI(_messageId);
+    let params = 'log='+encodeURI(log)+'&'+_sessionId;
     waitPromise(function(){
       return asyncPost(_targetAddress, params);
     }, 3, 400).catch(function(){
@@ -28,9 +27,9 @@ var AccessLogger = (function(){
     });
   };
   return {
-    setMessageId: function(messageId){
-      _messageId = messageId;
-      localStorage.setItem(_namespace+'messageId', messageId);
+    setSessionId: function(sessionId){
+      _sessionId = sessionId;
+      localStorage.setItem(_namespace+'sessionId', sessionId);
       sendLog();
       return this;
     },
@@ -52,4 +51,4 @@ var AccessLogger = (function(){
       return this;
     }
   };
-})();
+});

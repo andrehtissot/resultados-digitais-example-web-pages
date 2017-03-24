@@ -20,8 +20,8 @@
   <script src="js/asyncPost.js"></script>
   <script src="js/accessLogger.js"></script>
   <script>
-    AccessLogger.setTargetAddress(
-      'https://resultados-digitais-log-server.herokuapp.com/create.json').visit('Home');
+    new AccessLogger().setTargetAddress(
+      'https://resultados-digitais-log-server.herokuapp.com/log_visit/create.json').visit('Home');
   </script>
 </body>
 </html>
