@@ -17,5 +17,6 @@ No install process necessary.
 ### Behavior
 The libraries `waitPromise.js`, `asyncPost.js`, and `accessLogger.js` are generic and configure in
 each page.
-Since the contact page changes the `accessLogger.js` core's behavior, from collecting access data to
+
+The contact page changes the `accessLogger.js` core's behavior, from collecting access data to
 send it with the identification to the address defined.
